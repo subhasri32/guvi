@@ -1,0 +1,746 @@
+
+1.)Print odd numbers in an array 
+let odd_num=function(arr)
+{
+   for(let i=0;i<arr.length;i++)
+   {
+        if(arr[i]%10!=0)
+        {
+            console.log(arr[i]);
+        }
+   }
+}
+let arr=[1,2,3,4,5]
+odd_num(arr);
+
+2.) Convert all the strings to title caps in a string array
+let titleCaps=function(str)
+{
+    let arr=str.split(" ");
+   for(let i=0;i<arr.length;i++)
+   {
+        arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].slice(1);
+   }
+   console.log(arr.join(" "));
+}
+titleCaps("this is an example of string title caps");
+
+
+3.)Sum of all numbers in an array
+let sum=function(arr)
+{
+    let sum=0;
+    for(let i=0;i<arr.length;i++)
+   {
+        sum+=arr[i];
+   }
+   console.log(sum);
+}
+let arr=[1,2,3,4,5]
+sum(arr);
+
+4.)Return all the prime numbers in an array
+let primeNum=function(arr)
+{
+    let primeArr=[];
+    console.log(arr)
+    //let j=0;
+    for(let i=0;i<arr.length;i++)
+   {
+        if(arr[i]==1)
+        {
+            continue;
+        }
+        else if(arr[i]==2)
+        {
+            //console.log(arr[i]);
+            primeArr.push(arr[i]);
+            //j++;
+        }
+         else if(arr[i]==3)
+         {
+            primeArr.push(arr[i]);
+         }
+        else{
+            if((arr[i]%2!==0)&&(arr[i]%3!==0))
+            {
+                primeArr.push(arr[i]);
+            }
+        }
+    
+   }
+   return primeArr;
+};
+let arr=[1,2,3,4,5,6,7,9,10,11,12,13]
+let t=[];
+t=primeNum(arr);
+console.log(t);
+
+
+6.)Return all the palindromes in an array
+1.)if it is a number array:
+let palindromeArray = function(arr){
+    //initialize to true
+    let isPalindrome = true;
+    // if(arr.length%2!=0)
+    // {
+    //     return false;
+    // }
+    //loop through half length of the array
+    for(let i = 0; i < arr.length / 2; i++) {
+
+        //check if first half is equal to the second half
+        if(arr[i] !== arr[arr.length - i - 1]){
+          isPalindrome = false; 
+          break;
+        }
+    }
+    
+    return isPalindrome;
+}
+console.log(palindromeArray([1,2,3,3,2,1]));
+console.log(palindromeArray([1,2,1]));
+console.log(palindromeArray([1,2,3,3,2]));
+
+2.)if it is array of both string and num.
+let ispalindrome=function(arr)
+{
+    
+    let outArr=[];
+    for(let x=0;x<arr.length;x++)
+    {
+        let flag=true;
+        let str=[];
+        str=arr[x];
+        let i = 0;
+        let j = str.length - 1;
+        while(i < j) 
+        {
+            if(str[i] === str[j]) {
+             i++;
+             j--;
+            }
+            else {
+              flag=false;
+              i=j
+            }
+        }
+        if(flag===true)
+        {
+            outArr.push(str);
+        }
+    }
+    return outArr;
+};
+
+let arr=['car',121,'did','as']
+let t=ispalindrome(arr);
+console.log(t);
+
+
+
+6.)Return median of two sorted arrays of same size 
+
+7.)Remove duplicates from an array
+let removeDuplicates=function(arr)
+{
+ let n=arr.length
+let j=0;
+let temp=[];
+	for(let i=0;i<n-1;i++)
+	{
+		if(arr[i]!=arr[i+1])
+		{
+			temp[j++]=arr[i];
+		}
+	}
+	temp[j++]=arr[n-1];
+	console.log(temp);
+};
+let arr=[1,2,2,3,4,4,4,5,6];
+removeDuplicates(arr);
+
+
+Rotate an array by k times
+let rotateArr=function(arr,k)
+{
+let temp=[];
+let j=0;
+for(i=0;i<k;i++)
+{
+	temp[i]=arr[i];
+}
+for(i=k;i<arr.length;i++)
+{
+	arr[j++]=arr[i];
+}
+for(i=0;i<k;i++)
+{
+	arr[j++]=temp[i];
+}
+console.log(arr);
+};
+rotateArr([1,2,3,4,5],2);
+
+
+task 2:
+-------
+1.)Write a function called “addFive”.
+Given a number, “addFive” returns 5 added to that number.
+
+Input:
+addFive(5);
+addFive(0);
+addFive(-5);
+Output:
+10
+5
+0
+
+var num = 10;
+function addFive(num) { 
+    return num+5;
+
+}
+console.log(addFive(num));
+
+2.)Write a function called “getOpposite”.
+Given a number, return its opposite
+
+var num = 5.5;
+function getOpposite(num) {
+    if(typeof(num)!=Number)
+    {
+        return -1;
+    }
+    return -(num);
+}
+console.log(getOpposite(num));
+
+3.)Fill in your code that takes an number minutes and converts it to seconds.
+var min = 3;
+function toSeconds(min) {
+    return min*60;
+}
+var secs = toSeconds(min);
+console.log(secs);
+
+4.)Create a function that takes a string and returns it as an integer.
+
+var mystr = "5";
+function toInteger(mystr) {
+    return +mystr;
+}
+var myint = toInteger(mystr)
+console.log(myint);
+
+5.)Create a function that takes a number as an argument, increments the number by +1 and returns the result.
+
+var myint = 5;
+function nextNumber(myint) {
+    return myint+1;
+}
+console.log(nextNumber(myint));
+
+6.)Create a function that takes an array and returns the first element.
+var arr = [1, 2, 3];
+function getFirstElement(arr) {
+	return arr[0];
+}
+var data = getFirstElement(arr)
+console.log(data);
+
+
+6.)Convert Hours into Seconds
+Write a function that converts hours into seconds.
+var arr = [1, 2, 3];
+function hourToSeconds(arr) {
+    let temp=[];
+    for(i=0;i<arr.length;i++)
+    {
+     temp[i]=arr[i]*3600;   
+    }
+    return temp;
+}
+var data = hourToSeconds(arr)
+console.log(data)
+
+7.)Find the Perimeter of a Rectangle
+function findPerimeter(num1,num2) {
+return 2*(num1+num2)
+}
+var peri = findPerimeter(6,7)
+console.log(peri)
+
+8.)Less Than 100?
+Given two numbers, return true if the sum of both numbers is less than 100. Otherwise return false.
+function lessThan100(num1,num2) {
+   return (num1+num2)<100;
+
+}
+var res = lessThan100(22,85)
+console.log(res);
+
+
+9.)There is a single operator in JavaScript, capable of providing the remainder of a division operation. Two numbers are passed as parameters. The first parameter divided by the second parameter will have a remainder, possibly zero. Return that value.
+function remainder(num1,num2) {
+    return num1%num2
+}
+var res = remainder(-9,45)
+console.log(res)
+
+10.)Old macdonald had a farm:
+MacDonald is asking you to tell him how many legs can be counted among all his animals. The farmer breeds three species:
+turkey = 2 legs
+horse = 4 legs
+pigs = 4 legs
+The farmer has counted his animals and he gives you a subtotal for each species. You have to implement a function that returns the total number of legs of all the animals.
+function CountAnimals(tur,horse,pigs) {
+    return (tur*2)+(horse*4)+(pigs*4)
+}
+var legs = CountAnimals(1,2,3)
+console.log(legs);
+
+11.)Frames Per Second
+Create a function that returns the number of frames shown in a given number of minutes for a certain FPS.
+function frames(num1,num2) {
+}
+var fps = frames(1,2)
+
+12.check whether given number is divisible by 5
+function divisibleByFive(num1) {
+    return (num1%5===0)
+}
+var divisible = divisibleByFive(5)
+console.log(divisible)
+
+13.)Write a function called “isEven”.
+Given a number, “isEven” returns whether it is even.
+function isEven(num){
+    return (num%2===0)
+ // your code here
+}
+var even = isEven(5)
+console.log(even);
+
+14.)Write a function called “areBothOdd”.
+Given 2 numbers, “areBothOdd” returns whether or not both of the given numbers are odd.
+
+function areBothOdd(num1, num2){
+ // your code here
+    return ((num1%2!==0)&&(num2%2!==0));
+}
+console.log(areBothOdd(1,3));
+
+15.)Write a function called “getFullName”.
+Given a first and a last name, “getFullName” returns a single string with the given first and last names separated by a single space.
+
+function getFullName(firstName, lastName){
+    let str="";
+ return str.concat(firstName,lastName);
+}
+console.log(getFullName(" ","lakshmi"));
+
+16.)Write a function called “getLengthOfWord”.
+Given a word, “getLengthOfWord” returns the length of the given word.
+function getLengthOfWord(word1){
+ // your code here
+ let len=-1;
+ //console.log(typeof(word1))
+if(typeof(word1)==="string")
+{
+     console.log(word1.length);
+}
+else
+{
+    console.log(len);
+}
+}
+getLengthOfWord("Guvi");
+getLengthOfWord("");
+getLengthOfWord();
+getLengthOfWord(9);
+
+17.)Write a function called “isSameLength”.
+Given two words, “isSameLength” returns whether the given words have the same length.
+
+function isSameLength(word1, word2){
+console.log(word1.length===word2.length); // your code here
+}
+isSameLength("GUVI","GEEK");
+18.)Create a function to calculate the distance between two points defined by their x, y coordinates
+console.log(getDistance(100, 100, 400, 300));
+function getDistance(x1, y1, x2, y2)
+{
+ return Math.sqrt(Math.pow(x2 - x1, 2) +
+                Math.pow(y2 - y1, 2) * 1.0);
+}
+
+19.)Write a function called “getNthElement”.
+Given an array and an integer, “getNthElement” returns the element at the given integer, within the given array. If the array has a length of 0, it should return ‘undefined’.
+function getNthElement(array,n){
+ // your code here
+ console.log(array[n]);
+ 
+}
+getNthElement([],3);
+20.)get last element
+function getlastElement(array){
+ // your code here
+ let n=array.length
+ if(n===0)
+ {
+     console.log("-1")
+ }
+ else{
+  
+  console.log(array[n-1]);   
+ }
+ 
+ 
+}
+getlastElement([]);
+
+21.)Write a function called “getProperty”.
+Given an object and a key, “getProperty” returns the value of the property at the given key. If there is no property at the given key, it should return undefined.
+
+ var obj = {
+  mykey:"value"
+ };
+ function getProperty(obj, key) {
+  // your code here
+      console.log(obj[key]);
+}
+
+getProperty(obj,'dummymykey')
+
+
+22.)Write a function called “addProperty”.
+Given an object and a key, “addProperty” adds a new property on the given object with a value of true.
+var obj = {
+ mykey: "value"
+};
+function addProperty(obj, key){
+    obj[key]="value2";
+    console.log(obj);
+ // your code here
+}
+addProperty(obj,'key1')
+
+23.)Write a function called “removeProperty”.
+Given an object and a key, “removeProperty” removes the given key from the given object.
+
+let obj={
+    key1:"val1",
+    key2:"val2",
+    key3:"val3"
+}
+function removeProperty(obj, key){
+ delete obj[key];
+ console.log(obj);
+}
+removeProperty(obj,"key1")
+24.) count positive numbers
+add negative numbers
+var arr = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+var ar2 = function countPositivesSumNegatives(arr) {
+    let count=0;
+    let sum=0;
+    for(let i=0;i<arr.length;i++)
+    {
+        if(Math.sign(arr[i])==1)
+        {
+            count++;
+        }
+        else if(arr[i]===0)
+        {
+            count++;
+        }
+        else
+        {
+            sum+=arr[i];
+        }
+    }
+    console.log(count);
+    console.log(sum);
+ 
+}
+console.log(ar2(arr));
+
+
+24.)Create a function that receives an array of numbers and returns an array containing only the positive numbers
+
+function getPositives(ar)
+{
+ // your code here
+ let ar2=[];
+ for(let i=0;i<ar.length;i++)
+ {
+     if(Math.sign(ar[i])==1||Math.sign(ar[i])==0)
+     {
+         ar2.push(ar[i]);
+     }
+ }
+ return ar2;
+ 
+}
+var ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+var ar2 = getPositives(ar);
+console.log(ar2);
+
+25.)Write a function `powersOfTwo` which will return list of all powers of 2 from 0 to n (where n is an exponent).
+function powersOfTwo(n){
+    let arr=[];
+  
+ for(let i=0;i<=n;i++)
+ {
+    arr[i]= Math.pow(2,i)
+ }
+ console.log(arr)
+}
+powersOfTwo(0)
+powersOfTwo(1)
+powersOfTwo(2)
+
+26.)find max num in an array
+function findMax(ar)
+{
+    let max=0;
+
+for(let i=0;i<ar.length;i++)
+{
+    max=Math.max(ar[i],max);
+}
+return max;
+}
+var ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+var max = findMax(ar);
+console.log("Max: ", max);
+
+27.)Print the first 100 prime numbers
+printPrimes(100);
+// Function prints the first nPrimes numbers
+function printPrimes(nPrimes)
+{
+ var n = 0;
+ var i = 2;
+ 
+ while(n < nPrimes)
+ {
+ if (isPrime(i))
+ {
+ console.log(n, " → ", i);
+ n++;
+ }
+ 
+ i++;
+ }
+}
+// Returns true if a number is prime
+function isPrime(n)
+{
+if(n==2)
+ {
+    return true;   
+ }
+ else if(n==3)
+ {
+     return true;
+ }
+ else
+ {
+     if((n%2!==0)&&(n%3!==0))
+     {
+         return true
+     }
+ }
+}
+
+28.)Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”
+printPrimes(10,100);
+// Function prints the first nPrimes numbers
+function printPrimes(startAt,nPrimes)
+{
+ var n = 0;
+ var i = startAt;
+ 
+ while(n < nPrimes)
+ {
+ if (isPrime(i))
+ {
+ console.log(n, " → ", i);
+ n++;
+ }
+ 
+ i++;
+ }
+}
+// Returns true if a number is prime
+function isPrime(n)
+{
+if(n==2)
+ {
+    return true;   
+ }
+ else if(n==3)
+ {
+     return true;
+ }
+ else
+ {
+     if((n%2!==0)&&(n%3!==0))
+     {
+         return true
+     }
+ }
+}
+
+29.)reverse the string
+var s = reverseString("JavaScript");
+console.log(s);
+function reverseString(s)
+{
+    let reverse=s.split("").reverse().join("");
+    return reverse;
+}
+30.merge two arrays
+var ar1 = [1, 2, 3];
+var ar2 = [4, 5, 6];
+var ar = mergeArrays(ar1, ar2);
+console.log(ar);
+function mergeArrays(ar1, ar2)
+{
+ var result = [];
+//this will add the first array to the result array
+for(let el of ar1)
+ {
+ result.push(el);
+ }
+ 
+ for(let el of ar2)
+ {
+ result.push(el);
+ }
+ //Some piece of code goes here 
+ 
+ return result;
+}
+31.)Calculate the sum of numbers received in a comma delimited string
+ 	console.log(sumCSV("1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9"));
+function sumCSV(s)
+{
+  let arr=s.split(",");
+  //console.log(arr)
+  let sum=0;
+  for(let i=0;i<arr.length;i++)
+  {
+      sum+=+arr[i];
+  }
+ return sum
+}
+task3:
+1.)Print odd numbers in an array
+
+odd_num=(arr) =>{
+    for(let i=0;i<arr.length;i++){
+          if(arr[i]%2!==0){
+            console.log(arr[i]);
+        }
+    }
+}
+odd_num([1,2,3,4,5])
+
+2.)Convert all the strings to title caps in a string array
+titleCaps=str =>
+{
+    let arr=str.split(" ");
+   for(let i=0;i<arr.length;i++)
+   {
+        arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].slice(1);
+   }
+   console.log(arr.join(" "));
+}
+titleCaps("this is an example of string title caps");
+
+
+3.)Sum of all numbers in an array
+sum=arr=>
+{
+    let sum=0;
+    for(let i=0;i<arr.length;i++)
+   {
+        sum+=arr[i];
+   }
+   console.log(sum);
+}
+let arr=[1,2,3,4,5]
+sum(arr);
+
+4.)Return all the prime numbers in an array
+primeNum=arr=>
+{
+    let primeArr=[];
+    console.log(arr)
+    //let j=0;
+    for(let i=0;i<arr.length;i++)
+   {
+        if(arr[i]==1)
+        {
+            continue;
+        }
+        else if(arr[i]==2)
+        {
+            //console.log(arr[i]);
+            primeArr.push(arr[i]);
+            //j++;
+        }
+         else if(arr[i]==3)
+         {
+            primeArr.push(arr[i]);
+         }
+        else{
+            if((arr[i]%2!==0)&&(arr[i]%3!==0))
+            {
+                primeArr.push(arr[i]);
+            }
+        }
+    
+   }
+   return primeArr;
+};
+let arr=[1,2,3,4,5,6,7,9,10,11,12,13]
+let t=[];
+t=primeNum(arr);
+console.log(t);
+
+6.)Return all the palindromes in an array
+
+ispalindrome=arr=>
+{
+    
+    let outArr=[];
+    for(let x=0;x<arr.length;x++)
+    {
+        let flag=true;
+        let str=[];
+        str=arr[x];
+        let i = 0;
+        let j = str.length - 1;
+        while(i < j) 
+        {
+            if(str[i] === str[j]) {
+             i++;
+             j--;
+            }
+            else {
+              flag=false;
+              i=j
+            }
+        }
+        if(flag===true)
+        {
+            outArr.push(str);
+        }
+    }
+    return outArr;
+};
